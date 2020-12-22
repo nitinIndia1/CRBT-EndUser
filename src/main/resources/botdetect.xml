@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<botdetect xmlns="https://captcha.com/schema/net"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="https://captcha.com/schema/net
+            https://captcha.com/schema/net/botdetect-4.4.0.xsd">
+
+  <captchaStyles>
+    <captchaStyle>
+      <name>ExampleCaptcha</name>
+      <userInputID>CaptchaCodeTextBox</userInputID>
+      <codeLength>4</codeLength>
+      <helpLinkMode>IMAGE</helpLinkMode>
+    </captchaStyle>
+  </captchaStyles>
+
+  <loggingProvider>BotDetect.Logging.Log4NetLoggingProvider, BotDetect.Troubleshooting</loggingProvider>
+  <errorLoggingEnabled>true</errorLoggingEnabled>
+  <traceLoggingEnabled>true</traceLoggingEnabled>
+  <traceLoggingEventFilter>.*</traceLoggingEventFilter>
+
+</botdetect>

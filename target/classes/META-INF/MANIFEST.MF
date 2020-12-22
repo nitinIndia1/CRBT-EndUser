@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Implementation-Title: Crbt-EndUserApi
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: Wpits
+Implementation-Vendor-Id: com.crbt.api.services
+Build-Jdk: 1.8.0_271
+Implementation-URL: http://projects.spring.io/spring-boot/CRBT-EndUser
+ /
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+

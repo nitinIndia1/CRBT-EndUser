@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+	<!-- <property name="APP_LOGS" value="c:/logs" /> -->
+	<property name="APP_LOGS" value="/opt/Libyana/logs" />  
+	<appender name="fileout" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${APP_LOGS}/crbt_enduser_service.log</file>
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<Pattern>
+				%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %class{36}.%M %L - %msg%n
+			</Pattern>
+		</encoder>
+
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- rollover daily -->
+			<fileNamePattern>${APP_LOGS}/archived/crbt_enduser_service.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+			<timeBasedFileNamingAndTriggeringPolicy	class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>100MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+
+	</appender>
+	    
+    <!-- Disabling debugging for selective APIs -->
+    <logger name="org.hibernate" level="WARN"/>
+    <logger name="org.springframework" level="WARN"/>
+    
+    <root level="INFO WARN">
+    <!-- <root level="DEBUG"> -->
+        <!-- <appender-ref ref="stdout"/> -->
+        <appender-ref ref="fileout"/>
+    </root>
+</configuration>    
