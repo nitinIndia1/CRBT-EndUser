@@ -71,13 +71,13 @@ public class FavoritesController {
 		long l_time_start = System.currentTimeMillis();
 		try {
 		Favorites favorites = new Favorites();
-		Subscriber subscriber =  subscriberRepository.findOne(Integer.parseInt(favoritesBean.getSubscriber_id()));
+		Subscriber subscriber =  subscriberRepository.getOne(Integer.parseInt(favoritesBean.getSubscriber_id()));
 		if(subscriber==null) {
 			long l_end_time = System.currentTimeMillis();
 			l_diff = l_end_time-l_time_start;
 			return new	ResponseEntity<CoreResponseHandler>(new SuccessResponseBeanRefined(HttpStatus.NOT_FOUND, ResponseStatusEnum.FAILED, ApplicationResponse.Failed, "subscriber not found",l_diff+" ms"),HttpStatus.NOT_FOUND);
 		}
-		TopContent topContent =  topContentRepository.findOne(Integer.parseInt(favoritesBean.getTop_content_id()));
+		TopContent topContent =  topContentRepository.getOne(Integer.parseInt(favoritesBean.getTop_content_id()));
 		if(topContent==null) {
 			long l_end_time = System.currentTimeMillis();
 			l_diff = l_end_time-l_time_start;
@@ -106,7 +106,7 @@ public class FavoritesController {
 			ex.printStackTrace();
 			long l_end_time = System.currentTimeMillis();
 			l_diff = l_end_time-l_time_start;
-			return	new ResponseEntity<CoreResponseHandler>(new SuccessResponseBeanRefined(HttpStatus.INTERNAL_SERVER_ERROR, ResponseStatusEnum.FAILED, ApplicationResponse.Failed,"ERROR",l_diff+" ms"),HttpStatus.INTERNAL_SERVER_ERROR);			
+			return	new ResponseEntity<CoreResponseHandler>(new SuccessResponseBeanRefined(HttpStatus.INTERNAL_SERVER_ERROR, ResponseStatusEnum.FAILED, ApplicationResponse.Failed,"Exception",l_diff+" ms"),HttpStatus.INTERNAL_SERVER_ERROR);			
 		}
 		long l_end_time = System.currentTimeMillis();
 		l_diff = l_end_time-l_time_start;
